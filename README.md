@@ -6,6 +6,7 @@
   -Typescript
   -React Bootstrap
   -React Form Hook
-  -Formik
-  -Axios
-  -GSAP
+  - React Table Component
+    -Formik
+    -Axios
+    -GSAP
