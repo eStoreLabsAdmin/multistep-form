@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+.fa-icon {
+  padding: 10px;
+  color: purple;
+  width: 20px;
+  height: 20px;
+}

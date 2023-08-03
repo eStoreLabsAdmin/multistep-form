@@ -1,6 +1,9 @@
 import React from "react";
-
+import ReactDOM from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const columns = [
   {
@@ -11,6 +14,17 @@ const columns = [
   {
     name: "Name",
     selector: (row) => row.year,
+    sortable: true,
+  },
+  {
+    name: "Edit User",
+    cell: (row) => {
+      return (
+        <Link to={"/edit"}>
+          <FontAwesomeIcon className="fa-icon" icon={faEdit} />
+        </Link>
+      );
+    },
     sortable: true,
   },
 ];
@@ -29,5 +43,5 @@ const data = [
 ];
 
 export const UserList: React.FC = () => {
-  return <DataTable columns={columns} data={data} />;
+  return <DataTable columns={columns} data={data} pagination />;
 };
