@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import UsersList from "../components/UsersList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import Navigation from "../components/Navigation";
 
 const columns = [
   {
@@ -14,6 +15,11 @@ const columns = [
   {
     name: "Name",
     selector: (row) => row.year,
+    sortable: true,
+  },
+  {
+    name: "Username",
+    selector: (row) => row.title,
     sortable: true,
   },
   {
@@ -43,5 +49,11 @@ const data = [
 ];
 
 export const UserList: React.FC = () => {
-  return <DataTable columns={columns} data={data} pagination />;
+  return (
+    <>
+      <Navigation />
+      <UsersList />
+      <DataTable columns={columns} data={data} pagination />;
+    </>
+  );
 };

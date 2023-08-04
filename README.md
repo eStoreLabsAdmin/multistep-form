@@ -10,3 +10,4 @@
     -Formik
     -Axios
     -GSAP
+    -Font Awesome
