@@ -11,16 +11,20 @@ const columns: TableColumn<User>[] = [
     name: "Email",
     selector: (row) => row.email,
     sortable: true,
+    grow: 2,
   },
   {
     name: "Name",
     selector: (row) => row.name,
     sortable: true,
+    grow: 2,
   },
   {
     name: "Username",
     selector: (row) => row.username,
     sortable: true,
+    grow: 1,
+    center: true,
   },
   {
     name: "Edit User",
@@ -32,6 +36,8 @@ const columns: TableColumn<User>[] = [
       );
     },
     sortable: true,
+    grow: 1,
+    center: true,
   },
 ];
 
@@ -47,10 +53,11 @@ const UsersList = () => {
     },
   });
 
-  const user = list.map((item: User) => {
-    return item;
+  const user: User[] = list.map((singleUser: User) => {
+    return singleUser;
   });
-  console.log("data", user);
+
+  console.log("list", list);
 
   return <DataTable columns={columns} data={user} pagination />;
 };

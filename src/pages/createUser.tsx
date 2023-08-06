@@ -35,9 +35,13 @@ export const CreateUser: React.FC = () => {
                 Prev
               </Button>
             )}
-            <Button type="button" onClick={next}>
-              {isLastStep ? "Submit" : "Next"}
-            </Button>
+            {isLastStep ? (
+              <Button type="button">Submit</Button>
+            ) : (
+              <Button type="button" onClick={next}>
+                Next
+              </Button>
+            )}
           </div>
         </form>
       </div>
