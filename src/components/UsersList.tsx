@@ -48,7 +48,7 @@ const UsersList = () => {
   });
 
   const user = list.map((item: User) => {
-    return item.name;
+    return item;
   });
   console.log("data", user);
 
