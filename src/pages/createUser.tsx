@@ -1,12 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useMultiStepForm } from "../hooks/useMultiStepForm";
 import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import { UserData } from "../components/form/UserData";
+import { UserPlan } from "../components/form/UserPlan";
+import { UserOptions } from "../components/form/UserOptions";
 
 export const CreateUser: React.FC = () => {
-  const { steps, currentStepIndex, step, isFirstStep, back, next } =
-    useMultiStepForm([<div>One</div>, <div>Two</div>]);
+  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
+    useMultiStepForm([<UserData />, <UserPlan />, <UserOptions />]);
   return (
     <>
+      <Link to={"/"}>
+        <FontAwesomeIcon className="fa-solid" icon={faAnglesLeft} />
+      </Link>
       <p>this is create user page.</p>
       <div
         style={{
@@ -27,7 +36,7 @@ export const CreateUser: React.FC = () => {
               </Button>
             )}
             <Button type="button" onClick={next}>
-              Next
+              {isLastStep ? "Submit" : "Next"}
             </Button>
           </div>
         </form>
