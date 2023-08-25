@@ -11,34 +11,42 @@ import { UserOptions } from "../components/form/UserOptions";
 export const CreateUser: React.FC = () => {
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
     useMultiStepForm([<UserData />, <UserPlan />, <UserOptions />]);
+
+  function onSubmit() {
+    console.log("form submitted");
+  }
   return (
     <>
       <Link to={"/"}>
         <FontAwesomeIcon className="fa-solid" icon={faAnglesLeft} />
       </Link>
       <p>this is create user page.</p>
-      <div
-        style={{
-          position: "relative",
-          border: "2px solid black",
-          padding: "20px",
-        }}
-      >
+      <div className="position-relative shadow p-3 mb-5 bg-white rounded p-4">
         <form>
-          <div style={{ position: "absolute", top: "0", right: "0" }}>
+          <div className="position-absolute top-0 end-0">
             {currentStepIndex + 1} / {steps.length}
           </div>
           {step}
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="m-2 d-flex justify-content-between">
             {!isFirstStep && (
-              <Button type="button" onClick={back}>
+              <Button
+                className="btn btn-secondary"
+                type="button"
+                onClick={back}
+              >
                 Prev
               </Button>
             )}
             {isLastStep ? (
-              <Button type="button">Submit</Button>
+              <Button
+                className="btn btn-primary"
+                type="button"
+                onClick={onSubmit}
+              >
+                Submit
+              </Button>
             ) : (
-              <Button type="button" onClick={next}>
+              <Button className="btn btn-primary" type="button" onClick={next}>
                 Next
               </Button>
             )}

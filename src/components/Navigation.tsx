@@ -4,8 +4,8 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = () => {
   return (
-    <div className="navbar navbar-expand-lg bg-body-tertiary w-100">
-      <Link to={"/create"} className="align-self-end">
+    <div className="navbar navbar-expand-lg w-100 d-flex align-items-end">
+      <Link to={"/create"}>
         <FontAwesomeIcon
           className="fa-solid fa-icon icon-create"
           icon={faUserPlus}
